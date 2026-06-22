@@ -52,8 +52,12 @@
 }
 
 body {
-  background: transparent;
-  /* Push content down so the fixed control bar doesn't overlap it */
+  background-image: url('background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #0d0f2e; /* Fallback color */
   padding-top: 70px; 
   font-family: 'Segoe UI', system-ui, sans-serif;
 }
