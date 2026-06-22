@@ -68,7 +68,13 @@ body {
 .frame {
   border-radius: 16px;
   overflow: hidden;
-  background: #ff0000; /* Dark blue with 80% opacity */
+  /* Using 0.15 opacity keeps the container readable while letting the background show through */
+  background: rgba(43, 199, 251, 0.15);
+  /* The blur creates the frosted glass look */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  /* A subtle border reinforces the glass edge */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .mobile-frame {
   width: 390px;
