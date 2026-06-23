@@ -315,6 +315,26 @@ body {
 /* small utility */
 .container { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
 
+/* ==========================================================================
+   8. STATS SCROLL ANIMATION (desktop only)
+   ========================================================================== */
+.stats-scroll { display: flex; gap: 48px; align-items: center; }
+
+@keyframes marqueeLR {
+  0% { transform: translateX(-10%); }
+  50% { transform: translateX(10%); }
+  100% { transform: translateX(-10%); }
+}
+
+@media (min-width: 900px) {
+  .d-stats .stats-scroll { animation: marqueeLR 12s linear infinite; }
+  /* Constrain the main content (hero + stats + body) to a 16:9 area so capabilities fit visually */
+  .main-viewport { max-height: calc(100vw * 9 / 16); overflow: auto; }
+  /* slightly reduce padding inside hero/body to help fit */
+  .d-hero { padding: 40px 48px; grid-template-columns: 1fr 360px; gap: 40px; }
+  .d-body { padding: 24px 48px; gap: 40px; }
+}
+
   </style>
 </head>
 <body>
@@ -433,91 +453,98 @@ body {
     </div>
   </nav>
 
-  <div class="d-hero">
-    <div>
-      <div class="badge">Davinci Resolve · Post-Production · Motion Graphics</div>
-      <h1 class="d-h1">Professional <span>Video Editing</span><br>& Post-Production.</h1>
-      <p class="d-sub">Creating High-Quality Content using DaVinci Resolve for advanced timeline pacing, multi-track audio leveling, and custom Fusion Motion Graphics.</p>
-      <div class="d-ctas">
-        <a class="btn-p" href="https://www.youtube.com/@Protoape" target="_blank">▶ View My Channel</a>
-        <button class="btn-g">See My Work ↓</button>
-      </div>
-    </div>
+  <!-- Main viewport constrained to 16:9 to keep capabilities/tools visible -->
+  <div class="main-viewport">
 
-    <div class="d-char-side">
-      <div class="d-char-ring">
-        <img src="avatar.png" alt="Proto" onerror="this.style.display='none'"/>
-      </div>
-
-      <div class="d-li-wrapper">
-        <a class="lnk-card" href="https://www.linkedin.com/in/tariq-onar" target="_blank">
-          <div class="lnk-avatar">
-            <img src="avatar.png" alt="Tariq Onar" onerror="this.style.display='none'"/>
-          </div>
-          <div class="lnk-name">Tariq Onar</div>
-          <div class="lnk-title">Professional Video Editing &<br/>Post-Production Specialist</div>
-          <div class="lnk-btn">Connect On LinkedIn</div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-stats">
-    <div><div class="stat-num">DaVinci Resolve</div><div class="stat-lbl">Core editing suite</div></div>
-    <div><div class="stat-num">Fusion Motion Graphics</div><div class="stat-lbl">Custom asset modeling</div></div>
-    <div><div class="stat-num">Automation</div><div class="stat-lbl">asset pipelines</div></div>
-    <div><div class="stat-num">SLA</div><div class="stat-lbl">Rapid pipeline delivery</div></div>
-  </div>
-
-  <div class="container">
-    <div class="section-eye">Production Case Studies</div>
-    <h2 class="d-sec-title">Featured Media Projects</h2>
-    <p class="d-sec-sub">Full technical video execution cataloged at youtube.com/@Protoape</p>
-
-    <div class="carousel-wrapper">
-      <button class="nav-btn prev-btn" onclick="scrollCarousel('d-video-track', -1)">‹</button>
-      <div class="carousel-track" id="d-video-track">
-
-        <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </div>
-
-      </div>
-      <button class="nav-btn next-btn" onclick="scrollCarousel('d-video-track', 1)">›</button>
-    </div>
-
-    <div class="d-body">
+    <div class="d-hero">
       <div>
-        <div class="section-eye">Technical Core</div>
-        <h2 class="d-sec-title">Capabilities & Tools</h2>
-        <p class="d-sec-sub">Engineered for clean multi-track timeline execution, absolute data integrity, and strict audience retention goals.</p>
-        <div class="d-skills">
-          <div class="skill-card"><div class="skill-icon">✂️</div><div><div class="skill-name">DaVinci Resolve Studio</div><div class="skill-desc">Advanced narrative pacing, node-based color grading, and multi-layered timeline synchronization.</div></div></div>
-          <div class="skill-card"><div class="skill-icon">🎨</div><div><div class="skill-name">Visual Asset Design</div><div class="skill-desc">Hand-drawn character graphics, typographic setups, and custom thematic video illustrations.</div></div></div>
-          <div class="skill-card"><div class="skill-icon">📦</div><div><div class="skill-name">Fusion Motion Graphics</div><div class="skill-desc">Designing Custom Assets & Graphics into videos.</div></div></div>
-          <div class="skill-card"><div class="skill-icon">🔊</div><div><div class="skill-name">Audio Engineering</div><div class="skill-desc">Multi-track dialogue leveling, targeted equalizer application, and immersive sound design.</div></div></div>
-          <div class="skill-card"><div class="skill-icon">⚙️</div><div><div class="skill-name">Pipeline Automation</div><div class="skill-desc">Deploying command-line tools to automate batch asset gathering and file indexing.</div></div></div>
-          <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff narrative arcs to optimize watch-time metrics.</div></div></div>
+        <div class="badge">Davinci Resolve · Post-Production · Motion Graphics</div>
+        <h1 class="d-h1">Professional <span>Video Editing</span><br>& Post-Production.</h1>
+        <p class="d-sub">Creating High-Quality Content using DaVinci Resolve for advanced timeline pacing, multi-track audio leveling, and custom Fusion Motion Graphics.</p>
+        <div class="d-ctas">
+          <a class="btn-p" href="https://www.youtube.com/@Protoape" target="_blank">▶ View My Channel</a>
+          <button class="btn-g">See My Work ↓</button>
         </div>
       </div>
-    
+
+      <div class="d-char-side">
+        <div class="d-char-ring">
+          <img src="avatar.png" alt="Proto" onerror="this.style.display='none'"/>
+        </div>
+
+        <div class="d-li-wrapper">
+          <a class="lnk-card" href="https://www.linkedin.com/in/tariq-onar" target="_blank">
+            <div class="lnk-avatar">
+              <img src="avatar.png" alt="Tariq Onar" onerror="this.style.display='none'"/>
+            </div>
+            <div class="lnk-name">Tariq Onar</div>
+            <div class="lnk-title">Professional Video Editing &<br/>Post-Production Specialist</div>
+            <div class="lnk-btn">Connect On LinkedIn</div>
+          </a>
+        </div>
+      </div>
     </div>
 
-  </div>
+    <div class="d-stats">
+      <div class="stats-scroll">
+        <div><div class="stat-num">DaVinci Resolve</div><div class="stat-lbl">Core editing suite</div></div>
+        <div><div class="stat-num">Fusion Motion Graphics</div><div class="stat-lbl">Custom asset modeling</div></div>
+        <div><div class="stat-num">Automation</div><div class="stat-lbl">asset pipelines</div></div>
+        <div><div class="stat-num">SLA</div><div class="stat-lbl">Rapid pipeline delivery</div></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="section-eye">Production Case Studies</div>
+      <h2 class="d-sec-title">Featured Media Projects</h2>
+      <p class="d-sec-sub">Full technical video execution cataloged at youtube.com/@Protoape</p>
+
+      <div class="carousel-wrapper">
+        <button class="nav-btn prev-btn" onclick="scrollCarousel('d-video-track', -1)">‹</button>
+        <div class="carousel-track" id="d-video-track">
+
+          <div class="carousel-item">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+          </div>
+
+        </div>
+        <button class="nav-btn next-btn" onclick="scrollCarousel('d-video-track', 1)">›</button>
+      </div>
+
+      <div class="d-body">
+        <div>
+          <div class="section-eye">Technical Core</div>
+          <h2 class="d-sec-title">Capabilities & Tools</h2>
+          <p class="d-sec-sub">Engineered for clean multi-track timeline execution, absolute data integrity, and strict audience retention goals.</p>
+          <div class="d-skills">
+            <div class="skill-card"><div class="skill-icon">✂️</div><div><div class="skill-name">DaVinci Resolve Studio</div><div class="skill-desc">Advanced narrative pacing, node-based color grading, and multi-layered timeline synchronization.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">🎨</div><div><div class="skill-name">Visual Asset Design</div><div class="skill-desc">Hand-drawn character graphics, typographic setups, and custom thematic video illustrations.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">📦</div><div><div class="skill-name">Fusion Motion Graphics</div><div class="skill-desc">Designing Custom Assets & Graphics into videos.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">🔊</div><div><div class="skill-name">Audio Engineering</div><div class="skill-desc">Multi-track dialogue leveling, targeted equalizer application, and immersive sound design.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">⚙️</div><div><div class="skill-name">Pipeline Automation</div><div class="skill-desc">Deploying command-line tools to automate batch asset gathering and file indexing.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff narrative arcs to optimize watch-time metrics.</div></div></div>
+          </div>
+        </div>
+      
+      </div>
+
+    </div>
+
+  </div> <!-- end main-viewport -->
 
   <div class="d-reel">
     <div class="d-reel-left">
