@@ -353,6 +353,39 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
   .d-hero { padding: 40px 48px; grid-template-columns: 1fr 360px; gap: 40px; }
   .d-body { padding: 24px 48px; gap: 40px; }
 }
+/* ==========================================================================
+   9. FLOATING SCROLL ICON
+   ========================================================================== */
+.floating-icon-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  z-index: 9000; /* Keeps it above content but below dev controls */
+  pointer-events: none; /* Prevents it from blocking clicks on items beneath it */
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+#floating-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: circle(50%); 
+  transition: transform 0.1s linear; /* Smooths out the start/stop */
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+#floating-icon.scrolling {
+  animation: spin 3s linear infinite; /* Adjust '3s' to change the spin speed */
+}    
 
   </style>
 </head>
@@ -635,7 +668,28 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
       }, 120);
     });
   }
+// Scroll Spin Logic
+  let scrollTimeout;
+  
+  window.addEventListener('scroll', function() {
+    const icon = document.getElementById('floating-icon');
+    
+    // Add the class to start spinning
+    if (icon) {
+        icon.classList.add('scrolling');
+    }
 
+    // Clear the timeout if the user is still scrolling
+    window.clearTimeout(scrollTimeout);
+
+    // Set a timeout to remove the class after scrolling stops (150ms delay)
+    scrollTimeout = setTimeout(function() {
+      if (icon) {
+          icon.classList.remove('scrolling');
+      }
+    }, 150);
+  });
+  
   function sendPrompt(msg) {
     alert(msg);
   }
@@ -645,6 +699,8 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
     enableCarouselSnap('d-video-track');
   });
 </script>
-
+<div class="floating-icon-container">
+    <img src="DaVinci_Resolve_Studio.png" alt="DaVinci Resolve Icon" id="floating-icon" />
+  </div>
 </body>
 </html>
