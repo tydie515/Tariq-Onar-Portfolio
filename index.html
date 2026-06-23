@@ -207,17 +207,22 @@ body {
 .vid-title { font-size: 13px; font-weight: 600; color: var(--text-main); line-height: 1.35; margin-bottom: 4px; }
 .vid-meta { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-/* Embed responsive wrapper */
-.embed-wrap { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 ratio */ }
-.embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-
-/* Video card wrapper for carousel items */
+/* Video card wrapper - styled container matching page CSS */
 .video-card-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(13, 15, 46, 0.03);
   border: 1px solid var(--border);
+  padding: 0;
+}
+
+.video-card-wrap iframe {
   width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
 }
 
 /* ==========================================================================
@@ -300,20 +305,17 @@ body {
 .carousel-wrapper { position: relative; display: flex; align-items: center; width: 100%; overflow: hidden; }
 .carousel-track { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 20px; padding: 16px 8px; width: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
 .carousel-track::-webkit-scrollbar { display: none; }
-/* Mobile-first: ensure items fit inside mobile-frame */
+
+/* Carousel items - mobile first */
 .carousel-item { flex: 0 0 94%; max-width: 94%; box-sizing: border-box; scroll-snap-align: start; }
 
-/* Make the embedded players scale to the containing item */
-.vid-card, .d-vid-card { display: block; width: 100%; height: 100%; text-decoration: none; color: inherit; }
-.vid-thumb, .d-vid-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-
-/* Desktop: set card width to 560px (reduced from 720px for clarity) */
+/* Desktop: reduced 480px for proper clarity and no blur */
 @media (min-width: 900px) {
-  .carousel-item { flex: 0 0 560px; max-width: 560px; }
+  .carousel-item { flex: 0 0 480px; max-width: 480px; }
   .carousel-track { padding: 20px 0; gap: 28px; }
 }
 @media (min-width: 1400px) {
-  .carousel-item { flex: 0 0 560px; max-width: 560px; }
+  .carousel-item { flex: 0 0 480px; max-width: 480px; }
 }
 
 /* Buttons placed over the track */
@@ -337,9 +339,7 @@ body {
 
 @media (min-width: 900px) {
   .d-stats .stats-scroll { animation: marqueeLR 12s linear infinite; }
-  /* Constrain the main content (hero + stats + body) to a 16:9 area so capabilities fit visually */
   .main-viewport { max-height: calc(100vw * 9 / 16); overflow: auto; }
-  /* slightly reduce padding inside hero/body to help fit */
   .d-hero { padding: 40px 48px; grid-template-columns: 1fr 360px; gap: 40px; }
   .d-body { padding: 24px 48px; gap: 40px; }
 }
@@ -384,25 +384,19 @@ body {
       <div class="carousel-track" id="m-video-track">
         <div class="carousel-item">
           <div class="video-card-wrap">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="carousel-item">
           <div class="video-card-wrap">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="carousel-item">
           <div class="video-card-wrap">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+            <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -520,25 +514,19 @@ body {
 
           <div class="carousel-item">
             <div class="video-card-wrap">
-              <div class="embed-wrap">
-                <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
+              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="video-card-wrap">
-              <div class="embed-wrap">
-                <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
+              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
 
           <div class="carousel-item">
             <div class="video-card-wrap">
-              <div class="embed-wrap">
-                <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              </div>
+              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
 
@@ -611,14 +599,12 @@ body {
     if (!track) return;
     const items = track.querySelectorAll('.carousel-item');
     if (!items.length) return;
-    // gap is the CSS gap; if not available, fall back to 20
     const style = window.getComputedStyle(track);
     const gap = parseInt(style.getPropertyValue('gap')) || 20;
     const itemWidth = Math.round(items[0].getBoundingClientRect().width + gap);
     track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
   }
 
-  // snap to nearest card after scrolling stops (debounced)
   function enableCarouselSnap(id) {
     const track = document.getElementById(id);
     if (!track) return;
@@ -628,7 +614,6 @@ body {
       snapTimeout = setTimeout(function() {
         const items = Array.from(track.querySelectorAll('.carousel-item'));
         if (!items.length) return;
-        // find nearest item based on scrollLeft
         const scrollPos = track.scrollLeft;
         let nearest = items[0];
         let nearestDist = Math.abs(items[0].offsetLeft - scrollPos);
@@ -641,9 +626,7 @@ body {
     });
   }
 
-  // Optional: expose sendPrompt for the buttons (no-op fallback)
   function sendPrompt(msg) {
-    // placeholder - integrate with your messaging handler
     alert(msg);
   }
 
