@@ -81,8 +81,10 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+/* mobile-frame made responsive to fit container */
 .mobile-frame {
-  width: 390px;
+  width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   border: 1.5px solid rgba(255, 255, 255, 0.3);
 }
@@ -287,22 +289,22 @@ body {
 
 /* Carousel Logic + Responsive Improvements */
 .carousel-wrapper { position: relative; display: flex; align-items: center; width: 100%; overflow: hidden; }
-.carousel-track { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 24px; padding: 24px 12px; width: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+.carousel-track { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 20px; padding: 16px 8px; width: 100%; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
 .carousel-track::-webkit-scrollbar { display: none; }
-.carousel-item { flex: 0 0 92%; max-width: 92%; box-sizing: border-box; scroll-snap-align: start; }
+/* Mobile-first: ensure items fit inside mobile-frame */
+.carousel-item { flex: 0 0 94%; max-width: 94%; box-sizing: border-box; scroll-snap-align: start; }
 
-/* Make the card & thumb scale to the containing item */
+/* Make the embedded players scale to the containing item */
 .vid-card, .d-vid-card { display: block; width: 100%; height: 100%; text-decoration: none; color: inherit; }
 .vid-thumb, .d-vid-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
 
-/* Desktop: show multiple fixed-size cards side-by-side (wider to fit embedded videos)
-   on large screens prefer 560px (YouTube embed common width). */
+/* Desktop: set card width to 720px as requested */
 @media (min-width: 900px) {
-  .carousel-item { flex: 0 0 560px; max-width: 560px; }
+  .carousel-item { flex: 0 0 720px; max-width: 720px; }
   .carousel-track { padding: 20px 0; gap: 28px; }
 }
 @media (min-width: 1400px) {
-  .carousel-item { flex: 0 0 640px; max-width: 640px; }
+  .carousel-item { flex: 0 0 720px; max-width: 720px; }
 }
 
 /* Buttons placed over the track */
@@ -561,11 +563,34 @@ body {
     if (!track) return;
     const items = track.querySelectorAll('.carousel-item');
     if (!items.length) return;
-    // gap is the CSS gap; if not available, fall back to 24
+    // gap is the CSS gap; if not available, fall back to 20
     const style = window.getComputedStyle(track);
-    const gap = parseInt(style.getPropertyValue('gap')) || 24;
+    const gap = parseInt(style.getPropertyValue('gap')) || 20;
     const itemWidth = Math.round(items[0].getBoundingClientRect().width + gap);
     track.scrollBy({ left: direction * itemWidth, behavior: 'smooth' });
+  }
+
+  // snap to nearest card after scrolling stops (debounced)
+  function enableCarouselSnap(id) {
+    const track = document.getElementById(id);
+    if (!track) return;
+    let snapTimeout = null;
+    track.addEventListener('scroll', function() {
+      if (snapTimeout) clearTimeout(snapTimeout);
+      snapTimeout = setTimeout(function() {
+        const items = Array.from(track.querySelectorAll('.carousel-item'));
+        if (!items.length) return;
+        // find nearest item based on scrollLeft
+        const scrollPos = track.scrollLeft;
+        let nearest = items[0];
+        let nearestDist = Math.abs(items[0].offsetLeft - scrollPos);
+        items.forEach(function(item) {
+          const dist = Math.abs(item.offsetLeft - scrollPos);
+          if (dist < nearestDist) { nearestDist = dist; nearest = item; }
+        });
+        track.scrollTo({ left: nearest.offsetLeft, behavior: 'smooth' });
+      }, 120);
+    });
   }
 
   // Optional: expose sendPrompt for the buttons (no-op fallback)
@@ -573,6 +598,11 @@ body {
     // placeholder - integrate with your messaging handler
     alert(msg);
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    enableCarouselSnap('m-video-track');
+    enableCarouselSnap('d-video-track');
+  });
 </script>
 
 </body>
