@@ -33,7 +33,6 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 14px;
-  transition: all 0.2s;
 }
 .dev-btn.active {
   background: #3d5aff;
@@ -59,6 +58,140 @@
   --border: rgba(13, 15, 46, 0.15);
   --hoodie: #1a3bbf;
   --linkedin: #0a66c2;
+}
+
+/* ==========================================================================
+   HOVER GLOW + POP (pointer devices only)
+   ========================================================================== */
+.dev-btn,
+.btn-p,
+.btn-g,
+.contact-link,
+.lnk-card,
+.lnk-btn,
+.d-nav-links a,
+.badge,
+.section-eye,
+.skill-card,
+.skill-icon,
+.m-h1 span,
+.d-h1 span,
+.d-logo span,
+.hover-pop {
+  transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.22s ease,
+              border-color 0.22s ease,
+              background 0.22s ease,
+              color 0.22s ease;
+}
+
+.m-h1 span,
+.d-h1 span,
+.d-logo span {
+  display: inline-block;
+}
+
+.nav-btn {
+  transition: transform 0.22s cubic-bezier(0.34, 1.4, 0.64, 1),
+              box-shadow 0.22s ease,
+              background 0.22s ease;
+}
+
+@media (hover: hover) {
+  .dev-btn:hover,
+  .btn-p:hover,
+  .btn-g:hover,
+  .contact-link:hover,
+  .lnk-card:hover,
+  .d-nav-links a:hover,
+  .badge:hover,
+  .section-eye:hover,
+  .skill-card:hover,
+  .skill-icon:hover,
+  .m-h1 span:hover,
+  .d-h1 span:hover,
+  .d-logo span:hover,
+  .hover-pop:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(0, 185, 180, 0.55), 0 0 36px rgba(0, 185, 180, 0.25);
+  }
+
+  .btn-p:hover,
+  .btn-g:hover {
+    border-color: var(--accent);
+  }
+
+  .badge:hover {
+    border-color: rgba(61, 90, 255, 0.55);
+    background: rgba(61, 90, 255, 0.22);
+  }
+
+  .skill-card:hover {
+    border-color: rgba(0, 185, 180, 0.4);
+  }
+
+  .skill-icon:hover {
+    border-color: rgba(61, 90, 255, 0.45);
+    background: rgba(61, 90, 255, 0.25);
+  }
+
+  .m-h1 span:hover,
+  .d-h1 span:hover,
+  .d-logo span:hover {
+    text-shadow: 0 0 12px rgba(0, 185, 180, 0.65);
+  }
+
+  .section-eye:hover {
+    text-shadow: 0 0 12px rgba(0, 185, 180, 0.65);
+  }
+
+  .hover-pop:hover {
+    border-color: rgba(0, 185, 180, 0.45);
+  }
+
+  .lnk-card:hover {
+    border-color: var(--linkedin);
+    background: rgba(10, 102, 194, 0.08);
+    box-shadow: 0 0 18px rgba(10, 102, 194, 0.45), 0 0 36px rgba(10, 102, 194, 0.2);
+  }
+
+  .lnk-card:hover .lnk-btn {
+    background: #0073b1;
+  }
+
+  .nav-btn:hover {
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 0 18px rgba(0, 185, 180, 0.55), 0 0 36px rgba(0, 185, 180, 0.25);
+    background: rgba(0, 185, 180, 0.55);
+  }
+
+  .d-nav-links a:hover {
+    color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dev-btn:hover,
+  .btn-p:hover,
+  .btn-g:hover,
+  .contact-link:hover,
+  .lnk-card:hover,
+  .d-nav-links a:hover,
+  .badge:hover,
+  .section-eye:hover,
+  .skill-card:hover,
+  .skill-icon:hover,
+  .m-h1 span:hover,
+  .d-h1 span:hover,
+  .d-logo span:hover,
+  .hover-pop:hover,
+  .nav-btn:hover {
+    transform: none;
+  }
+
+  .nav-btn:hover {
+    transform: translateY(-50%);
+  }
 }
 
 body {
@@ -181,54 +314,22 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 .stat-lbl { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
 
 /* ==========================================================================
-   4. VIDEO CARD & THUMBNAIL COMPONENTS
+   4. VIDEO EMBED COMPONENTS
    ========================================================================== */
-.vid-card, .d-vid-card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-  background: rgba(13, 15, 46, 0.03);
-  text-decoration: none;
-  display: block;
-  color: inherit;
-}
-.vid-thumb, .d-vid-thumb {
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, #1a3bbf, #0d1040);
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.play {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(61, 90, 255, 0.8);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: #fff;
-}
 .vid-tag { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 3px; }
 .vid-title { font-size: 13px; font-weight: 600; color: var(--text-main); line-height: 1.35; margin-bottom: 4px; }
 .vid-meta { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-/* Video card wrapper - styled container matching page CSS */
-.video-card-wrap {
+.vid-embed {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
   border-radius: 10px;
   overflow: hidden;
   background: rgba(13, 15, 46, 0.03);
   border: 1px solid var(--border);
-  padding: 0;
 }
 
-.video-card-wrap iframe {
+.vid-embed iframe {
   width: 100%;
   height: 100%;
   display: block;
@@ -239,13 +340,11 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
    5. CUSTOM LINKEDIN PROFILE CARD
    ========================================================================== */
 .lnk-card { background: rgba(13, 15, 46, 0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px; width: 100%; max-width: 280px; text-decoration: none; display: flex; flex-direction: column; }
-.lnk-card:hover { border-color: var(--linkedin); background: rgba(10, 102, 194, 0.08); transform: translateY(-2px); }
 .lnk-avatar { width: 60px; height: 60px; border-radius: 50%; background: #111730; border: 2px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 .lnk-avatar img { width: 100%; object-fit: cover; }
 .lnk-name { color: var(--text-main); font-size: 14px; font-weight: 700; margin-bottom: 2px; }
 .lnk-title { color: var(--text-muted); font-size: 11px; line-height: 1.4; margin-bottom: 12px; font-weight: 500; }
-.lnk-btn { background: var(--linkedin); color: #fff; font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
-.lnk-card:hover .lnk-btn { background: #0073b1; }
+.lnk-btn { background: var(--linkedin); color: #fff; font-size: 11px; font-weight: 700; padding: 6px 16px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; align-self: flex-start; }
 .m-li-wrapper { margin: 16px 0 4px 0; display: flex; justify-content: center; }
 .d-li-wrapper { margin-top: 24px; display: flex; justify-content: center; width: 100%; }
 
@@ -299,8 +398,6 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 .d-sec-sub { font-size: 14px; color: var(--text-muted); font-weight: 500; margin-bottom: 18px; }
 .d-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .d-vids { display: flex; flex-direction: column; gap: 14px; }
-.d-vid-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: rgba(13, 15, 46, 0.03); text-decoration: none; display: grid; grid-template-columns: 140px 1fr; }
-.d-vid-thumb { background: linear-gradient(135deg, #1a3bbf, #0d1040); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
 .d-reel { margin: 0 80px 48px; background: rgba(26, 59, 191, 0.05); border: 1px solid var(--border); border-radius: 16px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
 .d-reel-left { flex: 1; }
 .d-reel h2 { font-size: 1.35rem; font-weight: 800; color: var(--text-main); text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); margin-bottom: 6px; }
@@ -319,17 +416,17 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 /* Carousel items - mobile first */
 .carousel-item { flex: 0 0 94%; max-width: 94%; box-sizing: border-box; scroll-snap-align: start; }
 
-/* Desktop: reduced 480px for proper clarity and no blur */
+/* Desktop: 640px embed width for sharper YouTube poster thumbnails */
 @media (min-width: 900px) {
-  .carousel-item { flex: 0 0 480px; max-width: 480px; }
+  .carousel-item { flex: 0 0 640px; max-width: 640px; }
   .carousel-track { padding: 20px 0; gap: 28px; }
 }
 @media (min-width: 1400px) {
-  .carousel-item { flex: 0 0 480px; max-width: 480px; }
+  .carousel-item { flex: 0 0 640px; max-width: 640px; }
 }
 
 /* Buttons placed over the track */
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(0,0,0,0.45); color: white; border: none; padding: 12px 14px; cursor: pointer; border-radius: 50%; font-size: 20px; transition: background 0.2s; }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(0,0,0,0.45); color: white; border: none; padding: 12px 14px; cursor: pointer; border-radius: 50%; font-size: 20px; }
 .prev-btn { left: 12px; }
 .next-btn { right: 12px; }
 
@@ -349,7 +446,7 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 
 @media (min-width: 900px) {
   .d-stats .stats-scroll { animation: marqueeLR 12s linear infinite; }
-  .main-viewport { max-height: calc(100vw * 9 / 16); overflow: auto; }
+  .main-viewport { overflow: visible; }
   .d-hero { padding: 40px 48px; grid-template-columns: 1fr 360px; gap: 40px; }
   .d-body { padding: 24px 48px; gap: 40px; }
 }
@@ -393,19 +490,19 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
       <button class="nav-btn prev-btn" onclick="scrollCarousel('m-video-track', -1)">‹</button>
       <div class="carousel-track" id="m-video-track">
         <div class="carousel-item">
-          <div class="video-card-wrap">
+          <div class="vid-embed hover-pop">
             <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="video-card-wrap">
+          <div class="vid-embed hover-pop">
             <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="video-card-wrap">
+          <div class="vid-embed hover-pop">
             <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </div>
@@ -523,19 +620,19 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
         <div class="carousel-track" id="d-video-track">
 
           <div class="carousel-item">
-            <div class="video-card-wrap">
+            <div class="vid-embed hover-pop">
               <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="video-card-wrap">
+            <div class="vid-embed hover-pop">
               <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="video-card-wrap">
+            <div class="vid-embed hover-pop">
               <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
