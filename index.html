@@ -211,10 +211,19 @@ body {
 .embed-wrap { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 ratio */ }
 .embed-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+/* Video card wrapper for carousel items */
+.video-card-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(13, 15, 46, 0.03);
+  border: 1px solid var(--border);
+  height: 100%;
+}
+
 /* ==========================================================================
    5. CUSTOM LINKEDIN PROFILE CARD
    ========================================================================== */
-.lnk-card { background: rgba(13, 15, 46, 0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px; width: 100%; max-width: 280px; text-decoration: none; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.2s ease; }
+.lnk-card { background: rgba(13, 15, 46, 0.03); border: 1px solid var(--border); border-radius: 12px; padding: 16px; width: 100%; max-width: 280px; text-decoration: none; display: flex; flex-direction: column; }
 .lnk-card:hover { border-color: var(--linkedin); background: rgba(10, 102, 194, 0.08); transform: translateY(-2px); }
 .lnk-avatar { width: 60px; height: 60px; border-radius: 50%; background: #111730; border: 2px solid var(--border); overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
 .lnk-avatar img { width: 100%; object-fit: cover; }
@@ -229,14 +238,14 @@ body {
    6. MOBILE STRUCTURE STYLES
    ========================================================================== */
 .m-hero { padding: 24px 20px 20px; display: flex; flex-direction: column; gap: 14px; }
-.m-char-ring { width: 120px; height: 120px; border-radius: 50%; background: #111730; border: 2px solid rgba(61, 90, 255, 0.35); display: flex; align-items: center; justify-content: center; align-self: center; flex-shrink: 0; overflow: hidden; }
+.m-char-ring { width: 120px; height: 120px; border-radius: 50%; background: #111730; border: 2px solid rgba(61, 90, 255, 0.35); display: flex; align-items: center; justify-content: center; align-self: center; }
 .m-char-ring img { width: 100%; height: 100%; object-fit: cover; }
 .m-h1 { font-size: 1.65rem; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--text-main); text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); margin-bottom: 8px; }
 .m-h1 span { color: var(--accent); text-shadow: none; -webkit-text-stroke: 1px black; transition: text-shadow 0.3s ease; }
 .m-sub { font-size: 13px; color: var(--text-muted); font-weight: 500; line-height: 1.55; margin-bottom: 12px; }
 .m-ctas { display: flex; gap: 8px; flex-wrap: wrap; }
 .m-stats { display: flex; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 12px 20px; gap: 0; }
-.m-stat { flex: 1; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--border); padding: 0 12px; }
+.m-stat { flex: 1; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--border); padding: 0 12px; text-align: center; justify-content: center; align-items: center; }
 .m-stat:first-child { padding-left: 0; }
 .m-stat:last-child { border-right: none; }
 .m-section { padding: 20px; }
@@ -251,7 +260,7 @@ body {
 .m-footer h3 { font-size: 14px; font-weight: 700; color: var(--text-main); }
 .m-footer p { font-size: 12px; color: var(--text-muted); font-weight: 500; }
 .m-links { display: flex; gap: 8px; flex-wrap: wrap; }
-.contact-link { background: rgba(13, 15, 46, 0.05); border: 1px solid rgba(13, 15, 46, 0.15); color: var(--text-main); padding: 8px 14px; border-radius: 7px; font-size: 12px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; cursor: pointer; }
+.contact-link { background: rgba(13, 15, 46, 0.05); border: 1px solid rgba(13, 15, 46, 0.15); color: var(--text-main); padding: 8px 14px; border-radius: 7px; font-size: 12px; font-weight: 700; text-decoration: none; cursor: pointer; }
 
 /* ==========================================================================
    7. DESKTOP STRUCTURE STYLES (increased spacing to avoid squeezed layout)
@@ -269,7 +278,7 @@ body {
 .d-char-side { display: flex; flex-direction: column; justify-content: center; align-items: center; }
 .d-char-ring { width: 320px; height: 320px; border-radius: 50%; background: #111730; border: 2px solid rgba(61, 90, 255, 0.35); display: flex; align-items: center; justify-content: center; overflow: hidden; }
 .d-char-ring img { width: 100%; height: 100%; object-fit: cover; }
-.d-stats { display: flex; padding: 24px 80px; gap: 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(13, 15, 46, 0.02); }
+.d-stats { display: flex; padding: 24px 80px; gap: 48px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(13, 15, 46, 0.02); justify-content: center; }
 .d-body { padding: 60px 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
 .d-sec-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); margin-bottom: 6px; }
 .d-sec-sub { font-size: 14px; color: var(--text-muted); font-weight: 500; margin-bottom: 18px; }
@@ -277,7 +286,7 @@ body {
 .d-vids { display: flex; flex-direction: column; gap: 14px; }
 .d-vid-card { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: rgba(13, 15, 46, 0.03); text-decoration: none; display: grid; grid-template-columns: 140px 1fr; }
 .d-vid-thumb { background: linear-gradient(135deg, #1a3bbf, #0d1040); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-.d-reel { margin: 0 80px 48px; background: rgba(26, 59, 191, 0.05); border: 1px solid var(--border); border-radius: 16px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.d-reel { margin: 0 80px 48px; background: rgba(26, 59, 191, 0.05); border: 1px solid var(--border); border-radius: 16px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
 .d-reel-left { flex: 1; }
 .d-reel h2 { font-size: 1.35rem; font-weight: 800; color: var(--text-main); text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); margin-bottom: 6px; }
 .d-reel p { font-size: 13px; color: var(--text-muted); font-weight: 500; line-height: 1.55; max-width: 560px; }
@@ -308,7 +317,7 @@ body {
 }
 
 /* Buttons placed over the track */
-.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(0,0,0,0.45); color: white; border: none; padding: 12px 14px; cursor: pointer; border-radius: 50%; font-size: 18px; backdrop-filter: blur(4px); }
+.nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(0,0,0,0.45); color: white; border: none; padding: 12px 14px; cursor: pointer; border-radius: 50%; font-size: 20px; transition: background 0.2s; }
 .prev-btn { left: 12px; }
 .next-btn { right: 12px; }
 
@@ -318,7 +327,7 @@ body {
 /* ==========================================================================
    8. STATS SCROLL ANIMATION (desktop only)
    ========================================================================== */
-.stats-scroll { display: flex; gap: 48px; align-items: center; }
+.stats-scroll { display: flex; gap: 48px; align-items: center; justify-content: center; }
 
 @keyframes marqueeLR {
   0% { transform: translateX(-10%); }
@@ -374,20 +383,26 @@ body {
       <button class="nav-btn prev-btn" onclick="scrollCarousel('m-video-track', -1)">‹</button>
       <div class="carousel-track" id="m-video-track">
         <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="video-card-wrap">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="video-card-wrap">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="embed-wrap">
-            <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <div class="video-card-wrap">
+            <div class="embed-wrap">
+              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
@@ -504,20 +519,26 @@ body {
         <div class="carousel-track" id="d-video-track">
 
           <div class="carousel-item">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-card-wrap">
+              <div class="embed-wrap">
+                <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-card-wrap">
+              <div class="embed-wrap">
+                <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="embed-wrap">
-              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-card-wrap">
+              <div class="embed-wrap">
+                <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
@@ -531,12 +552,12 @@ body {
           <h2 class="d-sec-title">Capabilities & Tools</h2>
           <p class="d-sec-sub">Engineered for clean multi-track timeline execution, absolute data integrity, and strict audience retention goals.</p>
           <div class="d-skills">
-            <div class="skill-card"><div class="skill-icon">✂️</div><div><div class="skill-name">DaVinci Resolve Studio</div><div class="skill-desc">Advanced narrative pacing, node-based color grading, and multi-layered timeline synchronization.</div></div></div>
-            <div class="skill-card"><div class="skill-icon">🎨</div><div><div class="skill-name">Visual Asset Design</div><div class="skill-desc">Hand-drawn character graphics, typographic setups, and custom thematic video illustrations.</div></div></div>
-            <div class="skill-card"><div class="skill-icon">📦</div><div><div class="skill-name">Fusion Motion Graphics</div><div class="skill-desc">Designing Custom Assets & Graphics into videos.</div></div></div>
-            <div class="skill-card"><div class="skill-icon">🔊</div><div><div class="skill-name">Audio Engineering</div><div class="skill-desc">Multi-track dialogue leveling, targeted equalizer application, and immersive sound design.</div></div></div>
-            <div class="skill-card"><div class="skill-icon">⚙️</div><div><div class="skill-name">Pipeline Automation</div><div class="skill-desc">Deploying command-line tools to automate batch asset gathering and file indexing.</div></div></div>
-            <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff narrative arcs to optimize watch-time metrics.</div></div></div>
+            <div class="skill-card"><div class="skill-icon">✂️</div><div><div class="skill-name">DaVinci Resolve Studio</div><div class="skill-desc">Advanced narrative pacing, node-based color grading</div></div></div>
+            <div class="skill-card"><div class="skill-icon">🎨</div><div><div class="skill-name">Visual Asset Design</div><div class="skill-desc">Hand-drawn character graphics, typographic setups</div></div></div>
+            <div class="skill-card"><div class="skill-icon">📦</div><div><div class="skill-name">Fusion Motion Graphics</div><div class="skill-desc">Designing Custom Assets & Graphics into videos</div></div></div>
+            <div class="skill-card"><div class="skill-icon">🔊</div><div><div class="skill-name">Audio Engineering</div><div class="skill-desc">Multi-track dialogue leveling, targeted equalizer application</div></div></div>
+            <div class="skill-card"><div class="skill-icon">⚙️</div><div><div class="skill-name">Pipeline Automation</div><div class="skill-desc">Deploying command-line tools to automate batch asset generation</div></div></div>
+            <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff scene timing</div></div></div>
           </div>
         </div>
       
