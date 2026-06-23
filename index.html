@@ -354,16 +354,21 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
   .d-body { padding: 24px 48px; gap: 40px; }
 }
 /* ==========================================================================
-   9. FLOATING SCROLL ICON
+   9. FLOATING ICON
    ========================================================================== */
 .floating-icon-container {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  /* Centers the icon vertically */
+  top: 50%;
+  transform: translateY(-50%);
+  
+  /* Locks it to the right edge of the 1400px container, or 24px from the screen edge on smaller devices */
+  right: calc(max(24px, 50vw - 680px)); 
+  
   width: 60px;
   height: 60px;
-  z-index: 9000; /* Keeps it above content but below dev controls */
-  pointer-events: none; /* Prevents it from blocking clicks on items beneath it */
+  z-index: 9000; 
+  pointer-events: none; 
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
@@ -374,18 +379,16 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  clip-path: circle(50%); 
-  transition: transform 0.1s linear; /* Smooths out the start/stop */
+  clip-path: circle(50%);
+  
+  /* Applies the spin animation permanently. Change '1s' to adjust speed. */
+  animation: spin 1s linear infinite; 
 }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-#floating-icon.scrolling {
-  animation: spin 3s linear infinite; /* Adjust '3s' to change the spin speed */
-}    
 
   </style>
 </head>
@@ -668,27 +671,6 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
       }, 120);
     });
   }
-// Scroll Spin Logic
-  let scrollTimeout;
-  
-  window.addEventListener('scroll', function() {
-    const icon = document.getElementById('floating-icon');
-    
-    // Add the class to start spinning
-    if (icon) {
-        icon.classList.add('scrolling');
-    }
-
-    // Clear the timeout if the user is still scrolling
-    window.clearTimeout(scrollTimeout);
-
-    // Set a timeout to remove the class after scrolling stops (150ms delay)
-    scrollTimeout = setTimeout(function() {
-      if (icon) {
-          icon.classList.remove('scrolling');
-      }
-    }, 150);
-  });
   
   function sendPrompt(msg) {
     alert(msg);
