@@ -366,6 +366,14 @@ body {
 .d-footer h3 { font-size: 15px; font-weight: 700; color: var(--text-main); margin-bottom: 2px; }
 .d-footer p { font-size: 12px; color: var(--text-muted); font-weight: 500; }
 .d-links { display: flex; gap: 10px; }
+/* Carousel Logic */
+.carousel-wrapper { position: relative; display: flex; align-items: center; width: 100%; overflow: hidden; }
+.carousel-track { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 16px; padding: 20px 0; width: 100%; scrollbar-width: none; }
+.carousel-track::-webkit-scrollbar { display: none; }
+.carousel-item { flex: 0 0 85%; max-width: 320px; } /* Adjust 85% for mobile, 320px for card size */
+.nav-btn { position: absolute; z-index: 10; background: rgba(0,0,0,0.4); color: white; border: none; padding: 12px 16px; cursor: pointer; border-radius: 50%; font-size: 18px; backdrop-filter: blur(4px); }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
 </style>
 
 <div class="dev-controls">
@@ -395,7 +403,21 @@ body {
     <div class="m-stat"><div class="stat-num">Fusion Motion Graphics</div><div class="stat-lbl">Custom assets</div></div>
     <div class="m-stat"><div class="stat-num">Pipeline</div><div class="stat-lbl">Effecient Data & File Management</div></div>
   </div>
-
+   
+<div class="m-section">
+  <div class="section-eye">Production Case Studies</div>
+  <h2 class="m-sec-title">Featured Media Projects</h2>
+  <div class="carousel-wrapper">
+    <button class="nav-btn prev-btn" onclick="scrollCarousel('m-video-track', -1)">‹</button>
+    <div class="carousel-track" id="m-video-track">
+       <div class="carousel-item"><a class="vid-card" href="https://www.youtube.com/@Protoape" target="_blank">...video content...</a></div>
+       <div class="carousel-item"><a class="vid-card" href="https://www.youtube.com/@Protoape" target="_blank">...video content...</a></div>
+    </div>
+    <button class="nav-btn next-btn" onclick="scrollCarousel('m-video-track', 1)">›</button>
+  </div>
+</div>
+      </a>
+   
   <div class="m-section">
     <div class="section-eye">Technical Core</div>
     <h2 class="m-sec-title">Capabilities & Tools</h2>
@@ -409,30 +431,6 @@ body {
       <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Strategy</div><div class="skill-desc">High-impact structural video hooks</div></div></div>
     </div>
   </div>
-
-  <div class="m-section" style="padding-top:0">
-    <div class="section-eye">Production Case Studies</div>
-    <h2 class="m-sec-title">Featured Content</h2>
-    <p class="m-sec-sub">Full technical execution hosted at @Protoape</p>
-    <div class="m-vids">
-      
-      <a class="vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
-        <div class="vid-thumb"><div class="play">▶</div></div>
-        <div style="padding:10px 12px">
-          <div class="vid-tag">Pacing & Structure</div>
-          <div class="vid-title">Analyzing retention mechanics across complex, multi-segment comparative video essays.</div>
-          <div class="vid-meta">See For Yourself →</div>
-        </div>
-      </a>
-      
-      <a class="vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
-        <div class="vid-thumb" style="background:linear-gradient(135deg,#0d0f30,#1f1f5c)"><div class="play">▶</div></div>
-        <div style="padding:10px 12px">
-          <div class="vid-tag">Fusion Motion Graphics</div>
-          <div class="vid-title">Integrating custom Assets & Graphics directly into timeline layouts.</div>
-          <div class="vid-meta">See For Yourself →</div>
-        </div>
-      </a>
       
     </div>
   </div>
@@ -516,6 +514,56 @@ body {
     <div><div class="stat-num">SLA</div><div class="stat-lbl">Rapid pipeline delivery</div></div>
   </div>
 
+  <div>
+  <div class="section-eye">Production Case Studies</div>
+  <h2 class="d-sec-title">Featured Media Projects</h2>
+  <p class="d-sec-sub">Full technical video execution cataloged at youtube.com/@Protoape</p>
+  
+  <div class="carousel-wrapper">
+    <button class="nav-btn prev-btn" onclick="scrollCarousel('d-video-track', -1)">‹</button>
+    
+    <div class="carousel-track" id="d-video-track">
+        
+      <div class="carousel-item">
+        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
+          <div class="d-vid-thumb"><div class="play">▶</div></div>
+          <div style="padding:12px">
+            <div class="vid-tag">Structural Pacing</div>
+            <div class="vid-title">Analyzing retention mechanics across complex, multi-segment comparative video essays.</div>
+            <div class="vid-meta">See For Yourself →</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="carousel-item">
+        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
+          <div class="d-vid-thumb" style="background:linear-gradient(135deg,#0d0f30,#1f1f5c)"><div class="play">▶</div></div>
+          <div style="padding:12px">
+            <div class="vid-tag">Asset Integration</div>
+            <div class="vid-title">Deploying custom Assets & Graphics to Enhance Quality of Content.</div>
+            <div class="vid-meta">See For Yourself →</div>
+          </div>
+        </a>
+      </div>
+      
+      <div class="carousel-item">
+        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
+          <div class="d-vid-thumb" style="background:linear-gradient(135deg,#100d30,#2a1f5c)"><div class="play">▶</div></div>
+          <div style="padding:12px">
+            <div class="vid-tag">Graphic Design</div>
+            <div class="vid-title">Original thematic branding assets and thematic character layouts developed for consistent visual scaling.</div>
+            <div class="vid-meta">See For Yourself →</div>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    
+    <button class="nav-btn next-btn" onclick="scrollCarousel('d-video-track', 1)">›</button>
+  </div>
+</div>
+        </a> 
+
   <div class="d-body">
     
     <div>
@@ -531,39 +579,6 @@ body {
         <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff narrative arcs to optimize watch-time metrics.</div></div></div>
       </div>
     </div>
-
-    <div>
-      <div class="section-eye">Production Case Studies</div>
-      <h2 class="d-sec-title">Featured Media Projects</h2>
-      <p class="d-sec-sub">Full technical video execution cataloged at youtube.com/@Protoape</p>
-      <div class="d-vids">
-        
-        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
-          <div class="d-vid-thumb"><div class="play">▶</div></div>
-          <div style="padding:12px">
-            <div class="vid-tag">Structural Pacing</div>
-            <div class="vid-title">Analyzing retention mechanics across complex, multi-segment comparative video essays.</div>
-            <div class="vid-meta">See For Yourself →</div>
-          </div>
-        </a>
-        
-        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
-          <div class="d-vid-thumb" style="background:linear-gradient(135deg,#0d0f30,#1f1f5c)"><div class="play">▶</div></div>
-          <div style="padding:12px">
-            <div class="vid-tag">Asset Integration</div>
-            <div class="vid-title">Deploying custom Assets & Graphics to Enhance Quality of Content.</div>
-            <div class="vid-meta">See For Yourself →</div>
-          </div>
-        </a>
-        
-        <a class="d-vid-card" href="https://www.youtube.com/@Protoape" target="_blank">
-          <div class="d-vid-thumb" style="background:linear-gradient(135deg,#100d30,#2a1f5c)"><div class="play">▶</div></div>
-          <div style="padding:12px">
-            <div class="vid-tag">Graphic Design</div>
-            <div class="vid-title">Original thematic branding assets and thematic character layouts developed for consistent visual scaling.</div>
-            <div class="vid-meta">See For Yourself →</div>
-          </div>
-        </a>
         
       </div>
     </div>
@@ -597,20 +612,20 @@ body {
   function forceMobileView(btn) {
     document.getElementById('view-mobile').style.display = 'block';
     document.getElementById('view-desktop').style.display = 'none';
-    
-    document.querySelectorAll('.dev-btn').forEach(function(b) {
-      b.classList.remove('active');
-    });
+    document.querySelectorAll('.dev-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
   }
 
   function forceDesktopView(btn) {
     document.getElementById('view-mobile').style.display = 'none';
     document.getElementById('view-desktop').style.display = 'block';
-    
-    document.querySelectorAll('.dev-btn').forEach(function(b) {
-      b.classList.remove('active');
-    });
+    document.querySelectorAll('.dev-btn').forEach(function(b) { b.classList.remove('active'); });
     btn.classList.add('active');
+  }
+
+  function scrollCarousel(id, direction) {
+    const track = document.getElementById(id);
+    const scrollAmount = 300; // Adjust this to control how far it scrolls
+    track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   }
 </script>
