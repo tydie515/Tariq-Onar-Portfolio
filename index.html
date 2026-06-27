@@ -336,6 +336,14 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
   border: none;
 }
 
+.vid-card {
+  background: rgba(13, 15, 46, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 10px;
+  overflow: hidden;
+}
+
 /* ==========================================================================
    5. CUSTOM LINKEDIN PROFILE CARD
    ========================================================================== */
@@ -362,7 +370,7 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 .m-stat { flex: 1; display: flex; flex-direction: column; gap: 2px; border-right: 1px solid var(--border); padding: 0 12px; text-align: center; justify-content: center; align-items: center; }
 .m-stat:first-child { padding-left: 0; }
 .m-stat:last-child { border-right: none; }
-.m-section { padding: 20px; }
+.m-section { padding: 20px; overflow: hidden; }
 .m-sec-title { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15); margin-bottom: 4px; }
 .m-sec-sub { font-size: 12px; color: var(--text-muted); font-weight: 500; margin-bottom: 14px; }
 .m-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -434,7 +442,7 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 .carousel-track::-webkit-scrollbar { display: none; }
 
 /* Carousel items - mobile first */
-.carousel-item { flex: 0 0 94%; max-width: 94%; box-sizing: border-box; scroll-snap-align: start; }
+.carousel-item { flex: 0 0 calc(100% - 32px); max-width: calc(100% - 32px); box-sizing: border-box; scroll-snap-align: start; padding: 6px; }
 
 /* Desktop: 640px embed width for sharper YouTube poster thumbnails */
 @media (min-width: 900px) {
@@ -510,20 +518,26 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
       <button class="nav-btn prev-btn" onclick="scrollCarousel('m-video-track', -1)">‹</button>
       <div class="carousel-track" id="m-video-track">
         <div class="carousel-item">
-          <div class="vid-embed hover-pop">
-            <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="vid-card hover-pop">
+            <div class="vid-embed">
+              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="vid-embed hover-pop">
-            <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="vid-card hover-pop">
+            <div class="vid-embed">
+              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
         <div class="carousel-item">
-          <div class="vid-embed hover-pop">
-            <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="vid-card hover-pop">
+            <div class="vid-embed">
+              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 
@@ -642,20 +656,26 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
         <div class="carousel-track" id="d-video-track">
 
           <div class="carousel-item">
-            <div class="vid-embed hover-pop">
-              <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="vid-card hover-pop">
+              <div class="vid-embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/eog2D2c2QKk?si=x73El0rlP6aUHuA7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="vid-embed hover-pop">
-              <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="vid-card hover-pop">
+              <div class="vid-embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/X0cT_cWesXY?si=nXJnpawjKKkRgIEe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
           <div class="carousel-item">
-            <div class="vid-embed hover-pop">
-              <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="vid-card hover-pop">
+              <div class="vid-embed">
+                <iframe src="https://www.youtube-nocookie.com/embed/FZwztmoFRiI?si=gQ2iE3naY3p6lUO_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
 
