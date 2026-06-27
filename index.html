@@ -397,6 +397,26 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
 .d-sec-title { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-main); text-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15); margin-bottom: 6px; }
 .d-sec-sub { font-size: 14px; color: var(--text-muted); font-weight: 500; margin-bottom: 18px; }
 .d-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.d-tools-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+.d-resolve-logo {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: rgba(13, 15, 46, 0.03);
+  cursor: default;
+}
+.d-resolve-logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .d-vids { display: flex; flex-direction: column; gap: 14px; }
 .d-reel { margin: 0 80px 48px; background: rgba(26, 59, 191, 0.05); border: 1px solid var(--border); border-radius: 16px; padding: 36px 48px; display: flex; align-items: center; justify-content: space-between; }
 .d-reel-left { flex: 1; }
@@ -653,6 +673,12 @@ h1, h2, .m-sec-title, .d-sec-title, .m-h1, .d-h1 {
             <div class="skill-card"><div class="skill-icon">🔊</div><div><div class="skill-name">Audio Engineering</div><div class="skill-desc">Multi-track dialogue leveling, targeted equalizer application</div></div></div>
             <div class="skill-card"><div class="skill-icon">⚙️</div><div><div class="skill-name">Pipeline Automation</div><div class="skill-desc">Deploying command-line tools to automate batch asset generation</div></div></div>
             <div class="skill-card"><div class="skill-icon">⚡</div><div><div class="skill-name">Retention Engineering</div><div class="skill-desc">Structuring strategic opening hooks and high-payoff scene timing</div></div></div>
+          </div>
+        </div>
+
+        <div class="d-tools-visual">
+          <div class="d-resolve-logo hover-pop">
+            <img src="DaVinci_Resolve_Studio.png" alt="DaVinci Resolve Studio" />
           </div>
         </div>
       
